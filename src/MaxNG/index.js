@@ -15,7 +15,7 @@ const apiEndpoints = {
           },
           getOrderPickupWindows:{
               path:"/orders/windows",
-              method:"GET",
+              method:"POST",
               params:{pickup_datetime$: Date},
               route_params:null
           },
@@ -27,16 +27,23 @@ const apiEndpoints = {
           },
           getPickUpWindow:{
               path:"/pricings/estimate",
-              method:"GET",
+              method:"POST",
               params:{origin$: Object, destination$: Object, service_id$: String},
               route_params:null
+          },
+          getAllDeliveryRequests:{
+              path:"/{:app_id}/orders",
+              method:"GET",
+              params:{limit:Number, offset:Number},
+              param_defaults: {limit: 0, offset: 0},
+              route_params:{app_id:String}
           },
           scheduleDeliveryRequest:{
               path:"/order",
               method:"POST",
               send_json:true,
-              params:{origin$:Object,destination:Object,sender_name:String,sender_phone$:String,recipient_name:String,is_card:Boolean,recipient_phone$:String,pickup_window$:Object,pickup_instruction:String,delivery_instruction:String,manifest:Array,service_id$:String},
-              param_defaults: { is_card: false, pickup_instruction:'Please deliver this as soon as you can!' },
+              params:{origin$:Object,destination$:Object,sender_name$:String,sender_phone$:String,recipient_name$:String,payee:String,cod_amount:Number,is_card:Boolean,recipient_phone$:String,pickup_window$:Object,pickup_instruction:String,delivery_instruction:String,manifest:Array,is_cod:Boolean,is_wallet:Boolean,is_cash:Boolean,service_id$:String},
+              param_defaults: { is_card: false, is_cod:false, is_cash: false, is_wallet:true, pickup_instruction:'Please deliver this as soon as you can!' },
               route_params:null
           }
 };
@@ -282,7 +289,7 @@ class MaxNgAPI {
         this.httpClientBaseOptions = {
             baseUrl:(!isProd ? api_base.sandbox : api_base.live), 
             headers: {
-                'Authorization':apiKey
+                'Authorization': apiKey
             }
         };
         
