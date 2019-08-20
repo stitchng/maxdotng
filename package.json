@@ -1,5 +1,5 @@
 {
-  "name": "maxng-node",
+  "name": "maxng-nodejs",
   "version": "0.0.3",
   "description": "A NodeJS wrapper for the MaxDotNG API",
   "main": "index.js",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "got": "8.3.2",
-    "lodash": "^4.17.0"
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
     "chai": "^4.2.0",
