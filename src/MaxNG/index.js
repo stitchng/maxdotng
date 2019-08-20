@@ -216,7 +216,7 @@ const makeMethod = function(config){
 };
 
 class MaxNgAPI {
-    constructor(apiKey, environment){
+    constructor(apiKey, isProd){
       
         var api_base = {
             sandbox:"https://sandbox.max.ng/v1",
@@ -228,9 +228,8 @@ class MaxNgAPI {
             live:"5838ffef-de7a-4593-86fb-7bda18b9667a"
         };
       
-        this.environment = environment;
       
-        this.api_service_id = this.environment === "development" ? api_service_ids['sandbox'] : api_service_ids['live'];
+        this.api_service_id = !isProd ? api_service_ids['sandbox'] : api_service_ids['live'];
       
         /* SNIPPET:::START
         
@@ -281,7 +280,7 @@ class MaxNgAPI {
         SNIPPET:::END */
         
         this.httpClientBaseOptions = {
-            baseUrl:(this.environment === "development"? api_base.sandbox : api_base.live), 
+            baseUrl:(!isProd ? api_base.sandbox : api_base.live), 
             headers: {
                 'Authorization':apiKey
             }
