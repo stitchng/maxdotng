@@ -22,13 +22,24 @@ This project provides an easy-to-use object-oriented API to access endpoints del
 
 ```js
 
-let InfoBip = require('maxng-nodejs')
+let MaxNg = require('maxng-nodejs')
 
-let APIKEY = 'pk_1IkXmSWOlE4y9Inhgyd6g5f2R7'
+const APIKEY = 'pk_1IkXmSWOlE4y9Inhgyd6g5f2R7'
 const environment = process.env.NODE_ENV
 const isProduction = (environment === 'production')
 
-const maxdotng = new MaxNg(APIKEY, isProduction)
+const maxdotng = new MaxNg(APIKEY, isProduction);
+
+let response = {body:{}};
+const date_time = new Date('2019-12-30')
+
+try {
+  response = await maxdotng.getPickUpWindow({
+    pickup_datetime: date_time
+  });
+}catch(err){
+    console.error(err);
+}
 
 ```
 
