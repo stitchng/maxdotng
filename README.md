@@ -18,7 +18,7 @@ This project provides an easy-to-use object-oriented API to access endpoints del
 
 ```
 
-# Usage
+## Usage
 
 ```js
 
@@ -51,15 +51,42 @@ try {
 - maxdotng.getDeliveryRequest()
 - maxdotng.getPickUpWindow()
 
-# License
+## License
 
 MIT
 
-# Credits
+# Contributing
+
+You are welcome to contribute to this project. Just before sending us a PR, do the following below:
+
+>Firstly, clone the project
+
+```bash
+
+git clone https://www.github.com/stitchng/maxdotng
+
+```
+
+>Then, lint the code to conform to our code style
+```bash
+
+npm run lint
+
+```
+>Finally, add tests to the test folder to test your code and run tests locally
+
+```bash
+
+npm run test
+
+```
+
+
+## Credits
 
 - [Ifeora Okechukwu](https://twitter.com/isocroft)
 
-# Contributing
+## Contributing
 
 See the [CONTRIBUTING.md](https://github.com/stitchng/maxdotng/blob/master/CONTRIBUTING.md) file for info
 
