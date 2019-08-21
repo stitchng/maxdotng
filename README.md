@@ -6,7 +6,7 @@
 A NodeJS Wrapper for [MaxNG](https://developers.max.ng)
 
 ## Overview
-This project provides an easy-to-use object-oriented API to access endpoints delineated at https://developers.max.ng/signup
+This project provides an easy-to-use object-oriented API to access endpoints delineated at https://maxv1.docs.apiary.io/
 
 ## Installation
 
